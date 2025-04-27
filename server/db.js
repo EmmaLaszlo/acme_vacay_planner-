@@ -7,7 +7,7 @@ const client = new Client({
 
 client.connect();
 
-// 2. Export your client and queries
+// 2. Export client and queries
 module.exports = {
   client,
 

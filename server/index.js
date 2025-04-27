@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-// 1. Import your database functions
+// 1. Import database functions
 const {
   client,
   createTables,
@@ -10,7 +10,7 @@ const {
   fetchReservations,
 } = require("./db");
 
-app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(express.json());
 
 // 2. Route to create tables
 app.get("/setup", async (req, res, next) => {
