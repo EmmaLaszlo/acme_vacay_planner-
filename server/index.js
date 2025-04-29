@@ -52,9 +52,20 @@ app.get("/api/reservations", async (req, res, next) => {
   }
 });
 
-// 6. Error handling middleware
+// 6. Error handling
 app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
+});
+
+// dont know if i actually need these
+app.post("/api/customers/:id/reservations", (req, res, next) => {
+  // Would use INSERT SQL here
+  res.send("This will create a reservation");
+});
+
+app.delete("/api/customers/:customer_id/reservations/:id", (req, res, next) => {
+  // Would use DELETE SQL here
+  res.send("This will delete a reservation");
 });
 
 // 7. Start the server

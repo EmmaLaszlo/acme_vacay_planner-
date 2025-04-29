@@ -56,4 +56,14 @@ module.exports = {
     const result = await client.query("SELECT * FROM reservations");
     return result.rows;
   },
+  // just the SQL as strings (no functions)
+
+  createReservationSQL: `
+    INSERT INTO reservations(id, date, party_count, restaurant_id, customer_id)
+    VALUES(uuid_generate_v4(), $1, $2, $3, $4);
+  `,
+
+  deleteReservationSQL: `
+    DELETE FROM reservations WHERE id = $1 AND customer_id = $2;
+  `,
 };
